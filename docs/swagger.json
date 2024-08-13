@@ -1,0 +1,291 @@
+{
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "API Server para el serivicio de autenticación de usuarios con LDAP para el proyecto UMAG",
+        "title": "Servicio de autenticación UMAG",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api/v1/auth",
+    "paths": {
+        "/api/v1/auth/login": {
+            "post": {
+                "description": "Loggeo dentro del sistema que pasa por LDAP",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Loggear",
+                "parameters": [
+                    {
+                        "description": "RUT y contraseña del usuario",
+                        "name": "loginData",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/forms.LoginForm"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.LoginModel"
+                        }
+                    },
+                    "400": {
+                        "description": "Datos enviados no cumplen con módelo",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    },
+                    "401": {
+                        "description": "Credenciales inválidas LDAP / Sin info en SAYD",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    },
+                    "500": {
+                        "description": "No se pudo generar el token",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/refresh": {
+            "post": {
+                "description": "Refresco del token JWT",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Refrescar token JWT",
+                "parameters": [
+                    {
+                        "description": "Token de refresco",
+                        "name": "loginData",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/forms.RefreshTokenForm"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.LoginModel"
+                        }
+                    },
+                    "401": {
+                        "description": "Token de recuperación inválido",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    },
+                    "500": {
+                        "description": "No se pudo regenerar el token",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    },
+                    "503": {
+                        "description": "Error en el servidor",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/auth/user": {
+            "get": {
+                "description": "Obtener usuario por medio del token JWT en la cabecera Authorization",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Obtener usuario",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.User"
+                        }
+                    },
+                    "401": {
+                        "description": "Sin info en SAYD",
+                        "schema": {
+                            "$ref": "#/definitions/smaps.ErrorRes"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "forms.LoginForm": {
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ],
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "forms.RefreshTokenForm": {
+            "type": "object",
+            "required": [
+                "refresh_token"
+            ],
+            "properties": {
+                "refresh_token": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Role": {
+            "type": "object",
+            "properties": {
+                "cod_categoria": {
+                    "description": "gorm.Model",
+                    "type": "integer"
+                },
+                "descripcion": {
+                    "type": "string"
+                },
+                "id_acceso": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.User": {
+            "type": "object",
+            "properties": {
+                "Apellidos": {
+                    "type": "string"
+                },
+                "Nombre": {
+                    "type": "string"
+                },
+                "Rut": {
+                    "type": "string"
+                },
+                "ap1_persona": {
+                    "type": "string"
+                },
+                "ap2_persona": {
+                    "type": "string"
+                },
+                "cod_persona": {
+                    "description": "gorm.Model",
+                    "type": "integer"
+                },
+                "cod_sexo": {
+                    "type": "integer"
+                },
+                "des_sexo": {
+                    "type": "string"
+                },
+                "eschileno": {
+                    "type": "string"
+                },
+                "fecha_nac": {
+                    "type": "string"
+                },
+                "mail_institucional": {
+                    "type": "string"
+                },
+                "mail_opcional": {
+                    "type": "string"
+                },
+                "mail_sid": {
+                    "type": "string"
+                },
+                "nacionalidad": {
+                    "type": "string"
+                },
+                "nombre_completo": {
+                    "type": "string"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Role"
+                    }
+                }
+            }
+        },
+        "smaps.ErrorRes": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "string"
+                }
+            }
+        },
+        "smaps.LoginModel": {
+            "type": "object",
+            "properties": {
+                "refreshToken": {
+                    "type": "string"
+                },
+                "token": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/models.User"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "description": "BearerJWTToken in Authorization Header",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "tags": [
+        {
+            "description": "Autenticación, refresco y sesión del usuario",
+            "name": "auth"
+        }
+    ]
+}

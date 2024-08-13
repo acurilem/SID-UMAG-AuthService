@@ -1,0 +1,103 @@
+dn: ou=usuarios,dc=umag,dc=cl
+objectclass: organizationalUnit
+ou: usuarios
+
+dn: uid=jeblanco,ou=usuarios,dc=umag,dc=cl
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+cn: JEREMIAS NATANAEL BLANCO AGUILANTE
+uidNumber: 80494
+gidNumber: 80494
+homeDirectory: /home/usuarios/jeblanco
+loginShell: /bin/false
+description: JEREMIAS NATANAEL BLANCO AGUILANTE
+mailLocalAddress: jeblanco@umag.cl
+mail: jeblanco@umag.cl
+gecos: JEREMIAS NATANAEL BLANCO AGUILANTE
+employeeNumber: 20692091-2
+uid: jeblanco
+employeeType: alumno
+mailRoutingAddress: jeblanco@correo.umag.cl
+mailHost: correo.umag.cl
+userPassword:: e01ENX1YcjRpbE96UTRQQ09xM2FRMHFidWFRPT0=
+givenName: JEREMIAS
+sn: Rojas D.
+businessCategory: 820d215feaf3a1d65a95172218606658
+
+dn: uid=misaaved,ou=usuarios,dc=umag,dc=cl
+uid: misaaved
+uidNumber: 77590
+gidNumber: 77590
+homeDirectory: /home/usuarios/misaaved
+loginShell: /bin/false
+description: MICHELLE ALLISON SAAVEDRA PEREZ
+mailLocalAddress: misaaved@umag.cl
+mail: misaaved@umag.cl
+gecos: MICHELLE ALLISON SAAVEDRA PEREZ
+employeeNumber: 19877868-0
+cn: MICHELLE ALLISON SAAVEDRA PEREZ
+employeeType: alumno
+mailRoutingAddress: misaaved@correo.umag.cl
+mailHost: correo.umag.cl
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+userPassword:: e01ENX1YcjRpbE96UTRQQ09xM2FRMHFidWFRPT0=
+givenName: Michelle
+sn: Saavedra P.
+businessCategory: 820d215feaf3a1d65a95172218606658
+
+dn: uid=jherreye,ou=usuarios,dc=umag,dc=cl
+uid: jherreye
+uidNumber: 76258
+gidNumber: 76258
+homeDirectory: /home/usuarios/jherreye
+loginShell: /bin/false
+description: JUAN ALBERTO HERNANDEZ REYES
+mailLocalAddress: jherreye@umag.cl
+mail: jherreye@umag.cl
+gecos: JUAN ALBERTO HERNANDEZ REYES
+employeeNumber: 18209705-5
+cn: JUAN ALBERTO HERNANDEZ REYES
+employeeType: alumno
+mailRoutingAddress: jherreye@correo.umag.cl
+mailHost: correo.umag.cl
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+userPassword:: e01ENX1YcjRpbE96UTRQQ09xM2FRMHFidWFRPT0=
+givenName: Juan
+sn: Hernandez R.
+businessCategory: 820d215feaf3a1d65a95172218606658
+
+dn: uid=corojas,ou=usuarios,dc=umag,dc=cl
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+cn: CONSTANZA JAVIERA ROJAS DIAZ
+uidNumber: 73675
+gidNumber: 73675
+homeDirectory: /home/usuarios/corojas
+loginShell: /bin/false
+description: CONSTANZA JAVIERA ROJAS DIAZ
+mailLocalAddress: corojas@umag.cl
+mail: corojas@umag.cl
+gecos: CONSTANZA JAVIERA ROJAS DIAZ
+employeeNumber: 19424932-2
+uid: corojas
+employeeType: alumno
+mailRoutingAddress: corojas@correo.umag.cl
+mailHost: correo.umag.cl
+userPassword:: e01ENX1YcjRpbE96UTRQQ09xM2FRMHFidWFRPT0=
+givenName: Constanza
+sn: Rojas D.
+businessCategory: 820d215feaf3a1d65a95172218606658

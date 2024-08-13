@@ -1,0 +1,27 @@
+dn: ou=grupos,dc=umag,dc=cl
+objectclass: organizationalUnit
+ou: grupos
+
+dn: cn=jeblanco,ou=grupos,dc=umag,dc=cl
+cn: jeblanco
+gidNumber: 80494
+memberUid: jeblanco
+objectClass: posixGroup
+
+dn: cn=misaaved,ou=grupos,dc=umag,dc=cl
+cn: misaaved
+gidNumber: 77590
+memberUid: misaaved
+objectClass: posixGroup
+
+dn: cn=jherreye,ou=grupos,dc=umag,dc=cl
+cn: jherreye
+gidNumber: 76258
+memberUid: jherreye
+objectClass: posixGroup
+
+dn: cn=corojas,ou=grupos,dc=umag,dc=cl
+objectClass: posixGroup
+cn: corojas
+gidNumber: 73675
+memberUid: corojas
