@@ -7,48 +7,18 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8080:8080
+      - 8224:8080
     networks:
-      - red1
+      - umag_network
     env_file:
       - ./.env
-    depends_on:
-      - ldap_server
-      - ldap_server_admin
-  ldap_server:
-    container_name: ldap_server_sid3
-    image: wshihadeh/openldap:withdata
-    environment:
-      LDAP_ADMIN_PASSWORD: secret
-      LDAP_BASE_DN: dc=umag,dc=cl
-      LDAP_DOMAIN: umag.cl
-    expose:
-      - 389
-    volumes:
-      - ldap_sid3_data:/var/lib/ldap
-      - ldap_sid3_config:/etc/ldap/slapd.d
-    networks:
-      - red1
-    mem_limit: 200m
-  ldap_server_admin:
-    container_name: ldap_server_admin_sid3
-    image: osixia/phpldapadmin:0.7.2
-    ports:
-      - 8090:80
-    environment:
-      PHPLDAPADMIN_LDAP_HOSTS: ldap_server
-      PHPLDAPADMIN_HTTPS: 'false'
-    networks:
-      - red1
-    hostname: ldap.localdo
-    mem_limit: 200m
-    depends_on:
-      - ldap_server
-
-volumes:
-  ldap_sid3_data:
-  ldap_sid3_config:
-
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.auth_backend.entrypoints=web,websecure"
+      - "traefik.http.services.auth_backend.loadbalancer.server.port=8224"
+      - "traefik.http.routers.auth_backend.service=auth_backend"
+      - "traefik.http.routers.auth_backend.rule=Host(`sid.pichimalen.org`) && (PathPrefix(`/api/v1/auth/user`) || PathPrefix(`/api/v1/auth/login`) || PathPrefix(`/api/v1/auth/refresh`))"      
+      - "traefik.http.routers.auth_backend.tls=true"
 networks:
-  red1:
-    name: red1
+  umag_network:
+    name: umag_network
