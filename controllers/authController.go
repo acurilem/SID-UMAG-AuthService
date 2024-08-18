@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/citiaps/SID-UMAG-AuthService/forms"
-	"github.com/citiaps/SID-UMAG-AuthService/services"
+	"github.com/acurilem/SID-UMAG-AuthService/forms"
+	"github.com/acurilem/SID-UMAG-AuthService/services"
 	"github.com/gin-gonic/gin"
 )
 

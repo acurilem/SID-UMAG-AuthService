@@ -7,18 +7,21 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8224:8080
+      - 8224
+    expose:
+      - 8224
     networks:
       - umag_network
     env_file:
       - ./.env
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.auth_backend.entrypoints=web,websecure"
+      #- "traefik.enable=true"
+        #- "traefik.http.routers.auth_backend.entrypoints=web,websecure"
       - "traefik.http.services.auth_backend.loadbalancer.server.port=8224"
-      - "traefik.http.routers.auth_backend.service=auth_backend"
-      - "traefik.http.routers.auth_backend.rule=Host(`sid.pichimalen.org`) && (PathPrefix(`/api/v1/auth/user`) || PathPrefix(`/api/v1/auth/login`) || PathPrefix(`/api/v1/auth/refresh`))"      
-      - "traefik.http.routers.auth_backend.tls=true"
+        #- "traefik.http.routers.auth_backend.service=auth_backend"
+      - "traefik.http.routers.auth_backend.rule=Host(`back.pichimalen.org`) && (PathPrefix(`/api/v1/auth/user`) || PathPrefix(`/api/v1/auth/login`) || PathPrefix(`/api/v1/auth/refresh`) || PathPrefix(`/api/v1/encuesta-docente/status`))"      
+        #- "traefik.http.routers.auth_backend.tls=true"
+        #- "traefik.http.routers.web.tls.certresolver=letsencrypt"
 networks:
   umag_network:
     name: umag_network

@@ -1,6 +1,6 @@
 package controller
 
-import "github.com/citiaps/SID-UMAG-AuthService/services"
+import "github.com/acurilem/SID-UMAG-AuthService/services"
 
 // Services
 var (

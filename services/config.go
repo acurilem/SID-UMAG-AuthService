@@ -3,7 +3,7 @@ package services
 import (
 	"time"
 
-	"github.com/citiaps/SID-UMAG-AuthService/settings"
+	"github.com/acurilem/SID-UMAG-AuthService/settings"
 )
 
 // Settings

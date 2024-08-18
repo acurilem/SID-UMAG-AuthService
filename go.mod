@@ -1,4 +1,4 @@
-module github.com/citiaps/SID-UMAG-AuthService
+module github.com/acurilem/SID-UMAG-AuthService
 
 go 1.20
 

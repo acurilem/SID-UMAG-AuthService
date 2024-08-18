@@ -1,8 +1,12 @@
 package routes
 
 import (
-	controller "github.com/citiaps/SID-UMAG-AuthService/controllers"
-	"github.com/citiaps/SID-UMAG-AuthService/middleware"
+	_ "net/http"
+
+	controller "github.com/acurilem/SID-UMAG-AuthService/controllers"
+
+	"github.com/acurilem/SID-UMAG-AuthService/middleware"
+	encuestaDocenteController "github.com/acurilem/encuesta-docente-backend/controller"
 	"github.com/gin-gonic/gin"
 )
 
@@ -16,5 +20,10 @@ func initAuthRoutes(r *gin.Engine) {
 		{
 			authenticatedRoutes.GET("/user", controller.User)
 		}
+
+	}
+	surveyGroup := r.Group("/api/v1/encuesta-docente")
+	{
+		surveyGroup.GET("/status", encuestaDocenteController.GetConfirmacionEncuestasPorContestarRespuestas)
 	}
 }

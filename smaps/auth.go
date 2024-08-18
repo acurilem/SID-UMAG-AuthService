@@ -1,6 +1,6 @@
 package smaps
 
-import "github.com/citiaps/SID-UMAG-AuthService/models"
+import "github.com/acurilem/SID-UMAG-AuthService/models"
 
 type LoginModel struct {
 	Token        string      `json:"token"`

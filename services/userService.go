@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/citiaps/SID-UMAG-AuthService/config"
-	"github.com/citiaps/SID-UMAG-AuthService/models"
+	"github.com/acurilem/SID-UMAG-AuthService/config"
+	"github.com/acurilem/SID-UMAG-AuthService/models"
 )
 
 // Función que va a buscar la info de un usuario desde vista_persona

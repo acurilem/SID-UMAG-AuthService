@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/citiaps/SID-UMAG-AuthService/forms"
-	"github.com/citiaps/SID-UMAG-AuthService/models"
+	"github.com/acurilem/SID-UMAG-AuthService/forms"
+	"github.com/acurilem/SID-UMAG-AuthService/models"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	ldap2 "gopkg.in/ldap.v2"

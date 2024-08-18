@@ -7,13 +7,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/citiaps/SID-UMAG-AuthService/docs"
-	"github.com/citiaps/SID-UMAG-AuthService/middleware"
-	"github.com/citiaps/SID-UMAG-AuthService/routes"
+	"github.com/acurilem/SID-UMAG-AuthService/routes"
 	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
@@ -86,18 +82,18 @@ func main() {
 		})
 	}))
 	// Docs
-	docs.SwaggerInfo.BasePath = "/api/v1/auth"
-	docs.SwaggerInfo.Version = "v1"
-	docs.SwaggerInfo.Host = "localhost:8080"
-	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	//docs.SwaggerInfo.BasePath = "/api/v1/auth"
+	//docs.SwaggerInfo.Version = "v1"
+	//docs.SwaggerInfo.Host = "localhost:8080"
+	//router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	// CORS
-	router.Use(middleware.CorsMiddleware())
+	//router.Use(middleware.CorsMiddleware())
 	// Init routes
 	routes.Init(router)
 
 	router.NoRoute(func(ctx *gin.Context) {
 		ctx.JSON(404, gin.H{
-			"error": "not found",
+			"error": "ss not found",
 		})
 	})
 	// Init

@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/citiaps/SID-UMAG-AuthService/services"
+	"github.com/acurilem/SID-UMAG-AuthService/services"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 )
